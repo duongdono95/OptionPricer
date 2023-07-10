@@ -1,0 +1,15 @@
+.highlighted-data {
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  &.Buy {
+    background-color: var(--buy-role);
+  }
+  &.Sell {
+    background-color: var(--sell-role);
+  }
+}
