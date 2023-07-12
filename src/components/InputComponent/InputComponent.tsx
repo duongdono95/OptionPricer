@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./InputComponent.scss";
 import { InputComponentType } from "../../types/GeneralTypes";
-import { Keyboard } from "lucide-react";
 interface InputComponentProps {
   type?: InputComponentType;
   defaultValue?: number;
