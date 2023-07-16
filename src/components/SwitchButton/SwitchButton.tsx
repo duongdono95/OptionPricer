@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SwitchButton.scss";
 import { CallPutConstants } from "../../types/constant";
 
-const SwitchButton = () => {
-  const [isSelected, setIsSelected] = useState(CallPutConstants[0]);
+const SwitchButton = ({ type }: { type: string | null }) => {
+  const [isSelected, setIsSelected] = useState("C");
+  useEffect(() => {
+    if (type !== null) {
+      setIsSelected(type);
+    }
+  }, [type]);
   return (
     <div className="switch-button">
       {CallPutConstants.map((item, index) => {
@@ -14,7 +19,7 @@ const SwitchButton = () => {
             onClick={() => setIsSelected(item)}
             style={{ backgroundColor: `var(--${item.toLowerCase()}-side)` }}
           >
-            {isSelected === item ? item : item.charAt(0)}
+            {isSelected === item ? (item === "C" ? "Call" : "Put") : item}
           </div>
         );
       })}

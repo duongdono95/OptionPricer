@@ -1,10 +1,9 @@
 import { PlusSquare, Send } from "lucide-react";
 import "./CreateNew.scss";
 import React from "react";
-import useTableContext from "../../TableComponents/TableProvider";
 
 const CreateNew = () => {
-  const { isCreateMode } = useTableContext();
+  const isCreateMode = false;
   return (
     <div className={isCreateMode ? "create-new isCreateMode" : "create-new"}>
       {isCreateMode ? <Send /> : <PlusSquare />}
