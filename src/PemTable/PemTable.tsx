@@ -7,8 +7,11 @@ import Tr from "../TableComponents/Tr";
 import CreateNew from "../components/CreateNew/CreateNew";
 import Td from "../TableComponents/Td";
 import Tfoot from "../TableComponents/Tfoot";
+import { useGenerationStore } from "../Zustand/store";
+import TableBodyRow from "./component/TableBodyRow";
 
 const PemTable = () => {
+  const { isCreateMode, setIsCreateMode } = useGenerationStore();
   return (
     <Table className="table">
       <PemTableHead />
@@ -16,7 +19,9 @@ const PemTable = () => {
       <Tfoot>
         <Tr>
           <Td colSpan={20}>
-            <CreateNew />
+            <div onClick={() => setIsCreateMode(!isCreateMode)}>
+              <CreateNew />
+            </div>
           </Td>
         </Tr>
       </Tfoot>

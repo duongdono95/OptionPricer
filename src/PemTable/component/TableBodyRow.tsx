@@ -8,10 +8,8 @@ import InputComponent from "../../components/InputComponent/InputComponent";
 import { useOptionModel } from "../../components/useOptionModel";
 import { OptionType } from "@pantheon-tech/bsm-optionmodel";
 import { numDataConverter } from "../../helpers/helper";
+import { useGenerationStore } from "../../Zustand/store";
 
-interface TableBodyRowProps {
-  isCreateMode?: Boolean;
-}
 const X = 50;
 const K = 50;
 const plusOneYear = new Date().setFullYear(new Date().getFullYear() + 1);
@@ -25,7 +23,8 @@ const q = 0.01;
 const s = 0.2;
 const type = OptionType.PUT;
 
-const TableBodyRow: React.FC<TableBodyRowProps> = ({ isCreateMode }) => {
+const TableBodyRow = () => {
+  const { isCreateMode } = useGenerationStore();
   const [setProp, optionProps] = useOptionModel({
     optionType: type,
     underlyingPrice: X,
@@ -35,7 +34,7 @@ const TableBodyRow: React.FC<TableBodyRowProps> = ({ isCreateMode }) => {
     dividendYield: 0,
     impliedVolatility: s,
   });
-  // console.log(optionProps);
+  console.log(optionProps);
   React.useEffect(() => {
     const timer = setInterval(() => {
       setProp("impliedVolatility", Math.random() * (1 - 0.01) + 0.01);
@@ -55,7 +54,7 @@ const TableBodyRow: React.FC<TableBodyRowProps> = ({ isCreateMode }) => {
         <SwitchButton type={"P"} />
       </Td>
       <Td title={optionProps?.optionPrice.toString()}>
-        {isCreateMode && isCreateMode ? (
+        {isCreateMode ? (
           <InputComponent />
         ) : (
           numDataConverter(optionProps?.optionPrice)

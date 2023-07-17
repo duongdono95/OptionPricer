@@ -1,12 +1,19 @@
 import { PlusSquare, Send } from "lucide-react";
 import "./CreateNew.scss";
 import React from "react";
+import { useGenerationStore } from "../../Zustand/store";
 
 const CreateNew = () => {
-  const isCreateMode = false;
+  const { isCreateMode, setIsCreateMode } = useGenerationStore();
   return (
     <div className={isCreateMode ? "create-new isCreateMode" : "create-new"}>
-      {isCreateMode ? <Send /> : <PlusSquare />}
+      {isCreateMode ? (
+        <div onClick={() => setIsCreateMode(!isCreateMode)}>
+          <Send />
+        </div>
+      ) : (
+        <PlusSquare />
+      )}
       {isCreateMode ? "Post New Row" : "Create New Row"}
     </div>
   );
