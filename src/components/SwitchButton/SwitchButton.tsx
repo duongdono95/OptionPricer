@@ -1,25 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./SwitchButton.scss";
 import { CallPutConstants } from "../../types/constant";
+import { zustandStore } from "../../Zustand/store";
 
-const SwitchButton = ({ type }: { type: string | null }) => {
-  const [isSelected, setIsSelected] = useState("C");
-  useEffect(() => {
-    if (type !== null) {
-      setIsSelected(type);
-    }
-  }, [type]);
+const SwitchButton = () => {
+  const [initialOptionType, setInitialOptionType] =
+    zustandStore((state) => [
+      state.initialOptionType,
+      state.setInitialOptionType,
+    ]);
   return (
     <div className="switch-button">
       {CallPutConstants.map((item, index) => {
         return (
           <div
-            className={isSelected === item ? "side flex-grow" : "side"}
+            className={
+              initialOptionType === item
+                ? "side flex-grow"
+                : "side"
+            }
             key={index}
-            onClick={() => setIsSelected(item)}
-            style={{ backgroundColor: `var(--${item.toLowerCase()}-side)` }}
+            onClick={() => setInitialOptionType(item)}
+            style={{
+              backgroundColor: `var(--${item.toLowerCase()}-side)`,
+            }}
           >
-            {isSelected === item ? (item === "C" ? "Call" : "Put") : item}
+            {initialOptionType === item
+              ? item === "C"
+                ? "Call"
+                : "Put"
+              : item}
           </div>
         );
       })}

@@ -1,10 +1,10 @@
 import React from "react";
 import Tbody from "../../TableComponents/Tbody";
 import TableBodyRow from "./TableBodyRow";
-import { useGenerationStore } from "../../Zustand/store";
+import { zustandStore } from "../../Zustand/store";
 
 const PemTableBody = () => {
-  const { isCreateMode } = useGenerationStore();
+  const { isCreateMode } = zustandStore();
   return (
     <Tbody>
       <TableBodyRow />
