@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./SwitchButton.scss";
 import { CallPutConstants } from "../../types/constant";
-import { zustandStore } from "../../Zustand/store";
+import { OptionType } from "@pantheon-tech/bsm-optionmodel";
 
-const SwitchButton = () => {
-  const [initialOptionType, setInitialOptionType] =
-    zustandStore((state) => [
-      state.initialOptionType,
-      state.setInitialOptionType,
-    ]);
+interface SwitchButtonProps {
+  optionType: OptionType.PUT | OptionType.CALL;
+  setOptionType: React.Dispatch<
+    React.SetStateAction<OptionType.PUT | OptionType.CALL>
+  >;
+}
+
+const SwitchButton: React.FC<SwitchButtonProps> = ({
+  optionType,
+  setOptionType,
+}) => {
   return (
     <div className="switch-button">
       {CallPutConstants.map((item, index) => {
         return (
           <div
             className={
-              initialOptionType === item
+              optionType === item
                 ? "side flex-grow"
                 : "side"
             }
             key={index}
-            onClick={() => setInitialOptionType(item)}
+            onClick={() => setOptionType(item)}
             style={{
               backgroundColor: `var(--${item.toLowerCase()}-side)`,
             }}
           >
-            {initialOptionType === item
+            {optionType === item
               ? item === "C"
                 ? "Call"
                 : "Put"

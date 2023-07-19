@@ -7,11 +7,17 @@ import dayjs from "dayjs";
 import Td from "../../TableComponents/Td";
 const PemTableHead = () => {
   const nodes = ["OTA", "BEN"];
-  const timePickerOptions = ["Date", "Week", "Month", "Quarter", "Year"];
-  const [selectedTimeOption, setSelectedTimeOption] = useState(
-    timePickerOptions[0]
-  );
-  const [selectedTime, setSelectedTime] = useState<string>();
+  const timePickerOptions = [
+    "Date",
+    "Week",
+    "Month",
+    "Quarter",
+    "Year",
+  ];
+  const [selectedTimeOption, setSelectedTimeOption] =
+    useState(timePickerOptions[0]);
+  const [selectedTime, setSelectedTime] =
+    useState<string>();
   return (
     <Thead className="pem-head">
       <Tr>
@@ -26,7 +32,9 @@ const PemTableHead = () => {
         </Td>
         <Td className="settle opacity07">SETTLE</Td>
         <Td rowSpan={2} colSpan={17} className="font-large">
-          {selectedTime ? selectedTime : dayjs().format("YYYY-MM-DD")}
+          {selectedTime
+            ? selectedTime
+            : dayjs().format("YYYY-MM-DD")}
         </Td>
       </Tr>
       <Tr>
@@ -49,7 +57,7 @@ const PemTableHead = () => {
         <Td>Underlying</Td>
         <Td>Hours</Td>
         <Td>Delta</Td>
-        <Td>Tdeta</Td>
+        <Td>Theta</Td>
         <Td>Vega</Td>
         <Td>Premium</Td>
         <Td>Underlying</Td>

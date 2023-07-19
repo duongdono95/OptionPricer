@@ -1,32 +1,31 @@
-import {
-  OptionProperties,
-  OptionType,
-} from "@pantheon-tech/bsm-optionmodel";
+import { OptionType } from "@pantheon-tech/bsm-optionmodel";
 import React, { useState } from "react";
 import CheckBox from "../../components/CheckBox/CheckBox";
-import HighlightedData from "../../components/HighlightedData/HighlightedData";
-import InputComponent from "../../components/InputComponent/InputComponent";
+
 import SwitchButton from "../../components/SwitchButton/SwitchButton";
-import { numDataConverter } from "../../helpers/helper";
 import Td from "../../TableComponents/Td";
 import Tr from "../../TableComponents/Tr";
-
-const TableBodyRow = ({
-  rowData,
-}: {
-  rowData: OptionProperties;
-}) => {
+import { EmptyDataRow } from "../../types/constant";
+const TableCreateRow = () => {
+  const [initialOption, setInitialOption] =
+    useState(EmptyDataRow);
   const [optionType, setOptionType] = useState<
     OptionType.PUT | OptionType.CALL
   >(OptionType.PUT);
+
   return (
     <Tr isCategories>
       <Td title="check box">
         <CheckBox />
       </Td>
-      <Td title="Exp Date">{rowData.expiryDate}</Td>
+      <Td title="Exp Date">
+        <input
+          type="text"
+          defaultValue={initialOption.expiryDate}
+        />
+      </Td>
       <Td title="Buy/Sell">
-        <HighlightedData role="Buy" tradedValue={10} />
+        <input defaultValue={0} />
       </Td>
       <Td title="Call/Put">
         <SwitchButton
@@ -35,59 +34,55 @@ const TableBodyRow = ({
         />
       </Td>
       <Td title="Price(/lot)">
-        {numDataConverter(rowData.optionPrice)}
+        <input defaultValue={initialOption.optionPrice} />
       </Td>
       <Td title="Cost">
-        <InputComponent defaultValue={100} />
+        <input defaultValue={0} />
       </Td>
       <Td title="Strike">
-        {numDataConverter(rowData.strikePrice)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Underlying">
-        {numDataConverter(rowData.underlyingPrice)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Hours">
-        <p>10</p>
+        <input defaultValue={0} />
       </Td>
       <Td title="Delta">
-        {numDataConverter(
-          rowData?.greeks[optionType].delta
-        )}
+        <input defaultValue={0} />
       </Td>
       <Td title="Theta">
-        {numDataConverter(
-          rowData?.greeks[optionType].theta
-        )}
+        <input defaultValue={0} />
       </Td>
       <Td title="Vega">
-        {numDataConverter(rowData.greeks[optionType].vega)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Premium">
         <p>0</p>
       </Td>
       <Td title="Underlying">
-        {numDataConverter(rowData.underlyingPrice)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Strike">
-        {numDataConverter(rowData.strikePrice)}
+        <input defaultValue={0} />
       </Td>
       <Td title="volatility">
-        {numDataConverter(rowData.impliedVolatility)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Interest rate">
-        {numDataConverter(rowData.riskFreeRate)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Dividend Yield">
-        {numDataConverter(rowData.dividendYield)}
+        <input defaultValue={0} />
       </Td>
       <Td title="Day to Expire">
-        <p>{rowData.daysToExpiry} days</p>
+        <input defaultValue={0} />
       </Td>
       <Td title="Year to Expire">
-        {numDataConverter(rowData.yearsToExpiry)}
+        <input defaultValue={0} />
       </Td>
     </Tr>
   );
 };
 
-export default TableBodyRow;
+export default TableCreateRow;

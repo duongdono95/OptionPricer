@@ -3,7 +3,7 @@ import "./InputComponent.scss";
 import { InputComponentType } from "../../types/GeneralTypes";
 interface InputComponentProps {
   type?: InputComponentType;
-  defaultValue?: number;
+  defaultValue?: number | string;
 }
 
 const InputComponent: React.FC<InputComponentProps> = ({

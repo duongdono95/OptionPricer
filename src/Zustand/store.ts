@@ -2,14 +2,15 @@ import {
   OptionProperties,
   OptionType,
 } from "@pantheon-tech/bsm-optionmodel";
+
 import create from "zustand";
-import { GetOption } from "../helpers/getOption";
 import { EmptyDataRow } from "../types/constant";
 
 interface State {
   isCreateMode: boolean;
   initialOptionType: OptionType.PUT | OptionType.CALL;
   tableRowDataArr: OptionProperties[] | [];
+  emptyOption: OptionProperties;
 }
 interface Action {
   setIsCreateMode: (
@@ -19,9 +20,8 @@ interface Action {
     optionType: State["initialOptionType"]
   ) => void;
   setTableRowDataArr: (newRow: OptionProperties) => void;
+  setEmptyOption: (newOption: OptionProperties) => void;
 }
-
-const optionProps = GetOption();
 
 export const zustandStore = create<State & Action>()(
   (set) => ({
@@ -37,12 +37,46 @@ export const zustandStore = create<State & Action>()(
     ) => set(() => ({ initialOptionType: optionType })),
 
     //initial Table Data
-    tableRowDataArr: [
-      optionProps ? optionProps : EmptyDataRow,
-    ],
+    tableRowDataArr: [],
     setTableRowDataArr: (newRow: OptionProperties) =>
       set((state) => ({
         tableRowDataArr: [...state.tableRowDataArr, newRow],
+      })),
+
+    //empty Option
+    emptyOption: EmptyDataRow,
+    setEmptyOption: (newOption: OptionProperties) =>
+      set((state) => ({
+        emptyOption: {
+          daysToExpiry: newOption.daysToExpiry,
+          yearsToExpiry: newOption.yearsToExpiry,
+          optionPrice: newOption.optionPrice,
+          greeks: {
+            P: {
+              price: newOption.greeks.P.price,
+              delta: newOption.greeks.P.delta,
+              gamma: newOption.greeks.P.gamma,
+              theta: newOption.greeks.P.theta,
+              vega: newOption.greeks.P.vega,
+              rho: newOption.greeks.P.rho,
+            },
+            C: {
+              price: newOption.greeks.C.price,
+              delta: newOption.greeks.C.delta,
+              gamma: newOption.greeks.C.gamma,
+              theta: newOption.greeks.C.theta,
+              vega: newOption.greeks.C.vega,
+              rho: newOption.greeks.C.rho,
+            },
+          },
+          optionType: OptionType.PUT,
+          underlyingPrice: newOption.underlyingPrice,
+          strikePrice: newOption.strikePrice,
+          expiryDate: newOption.expiryDate,
+          riskFreeRate: newOption.riskFreeRate,
+          dividendYield: newOption.dividendYield,
+          impliedVolatility: newOption.impliedVolatility,
+        },
       })),
   })
 );

@@ -11,7 +11,12 @@ import { zustandStore } from "../Zustand/store";
 import TableBodyRow from "./component/TableBodyRow";
 
 const PemTable = () => {
-  const { isCreateMode, setIsCreateMode } = zustandStore();
+  const [isCreateMode, setIsCreateMode] = zustandStore(
+    (state) => [state.isCreateMode, state.setIsCreateMode]
+  );
+  const handleClick = () => {
+    setIsCreateMode(!isCreateMode);
+  };
   return (
     <Table className="table">
       <PemTableHead />
@@ -19,9 +24,7 @@ const PemTable = () => {
       <Tfoot>
         <Tr>
           <Td colSpan={20}>
-            <div
-              onClick={() => setIsCreateMode(!isCreateMode)}
-            >
+            <div onClick={() => handleClick()}>
               <CreateNew />
             </div>
           </Td>

@@ -27,14 +27,14 @@ export const GetOption = () => {
     dividendYield: 0,
     impliedVolatility: s,
   });
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProp(
-        "impliedVolatility",
-        Math.random() * (1 - 0.01) + 0.01
-      );
-    }, 5000);
-    return () => void clearInterval(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setProp(
+  //       "impliedVolatility",
+  //       Math.random() * (1 - 0.01) + 0.01
+  //     );
+  //   }, 50000);
+  //   return () => void clearInterval(timer);
+  // }, []);
   return optionProps;
 };
