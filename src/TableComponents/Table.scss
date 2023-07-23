@@ -27,8 +27,14 @@
 
       font-size: 12px;
       td {
+        &.highlighted {
+          background-color: var(--signature02) !important;
+        }
         &:nth-child(even) {
           background-color: var(--black01);
+          &.highlighted {
+            background-color: var(--signature04) !important;
+          }
         }
       }
     }
@@ -42,8 +48,14 @@
   tbody {
     td {
       font-size: 12px;
+      &.highlighted {
+        background-color: var(--signature01) !important;
+      }
       &:nth-child(even) {
         background-color: var(--black005);
+        &.highlighted {
+          background-color: var(--signature02) !important;
+        }
       }
     }
     tr {

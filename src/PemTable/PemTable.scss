@@ -21,6 +21,18 @@
   .nodes {
     width: 70px;
   }
+  .note {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    .colored-note {
+      width: 20px;
+      height: 20px;
+      background-color: var(--signature02);
+      border-radius: 3px;
+    }
+  }
 }
 input {
   width: 50px;

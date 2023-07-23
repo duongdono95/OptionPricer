@@ -7,8 +7,7 @@ import Td from "../../TableComponents/Td";
 import Tr from "../../TableComponents/Tr";
 import { EmptyDataRow } from "../../types/constant";
 const TableCreateRow = () => {
-  const [initialOption, setInitialOption] =
-    useState(EmptyDataRow);
+  const [initialOption, setInitialOption] = useState(EmptyDataRow);
   const [optionType, setOptionType] = useState<
     OptionType.PUT | OptionType.CALL
   >(OptionType.PUT);
@@ -19,19 +18,13 @@ const TableCreateRow = () => {
         <CheckBox />
       </Td>
       <Td title="Exp Date">
-        <input
-          type="text"
-          defaultValue={initialOption.expiryDate}
-        />
+        <input type="text" defaultValue={initialOption.expiryDate} />
       </Td>
-      <Td title="Buy/Sell">
+      <Td highlighted title="Buy/Sell">
         <input defaultValue={0} />
       </Td>
-      <Td title="Call/Put">
-        <SwitchButton
-          optionType={optionType}
-          setOptionType={setOptionType}
-        />
+      <Td highlighted title="Call/Put">
+        <SwitchButton optionType={optionType} setOptionType={setOptionType} />
       </Td>
       <Td title="Price(/lot)">
         <input defaultValue={initialOption.optionPrice} />
@@ -39,7 +32,7 @@ const TableCreateRow = () => {
       <Td title="Cost">
         <input defaultValue={0} />
       </Td>
-      <Td title="Strike">
+      <Td highlighted title="Strike">
         <input defaultValue={0} />
       </Td>
       <Td title="Underlying">
@@ -66,7 +59,7 @@ const TableCreateRow = () => {
       <Td title="Strike">
         <input defaultValue={0} />
       </Td>
-      <Td title="volatility">
+      <Td highlighted title="volatility">
         <input defaultValue={0} />
       </Td>
       <Td title="Interest rate">

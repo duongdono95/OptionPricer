@@ -1,40 +1,40 @@
 import React, { useState } from "react";
 import Thead from "../../TableComponents/Thead";
 import Tr from "../../TableComponents/Tr";
-import { DropDown } from "../../components/DropDown/DropDown";
+import DropDown from "../../components/DropDown/DropDown";
 import TimePicker from "../../components/TimePicker/TimePicker";
 import dayjs from "dayjs";
 import Td from "../../TableComponents/Td";
 const PemTableHead = () => {
   const nodes = ["OTA", "BEN"];
-  const timePickerOptions = [
-    "Date",
-    "Week",
-    "Month",
-    "Quarter",
-    "Year",
-  ];
-  const [selectedTimeOption, setSelectedTimeOption] =
-    useState(timePickerOptions[0]);
-  const [selectedTime, setSelectedTime] =
-    useState<string>();
+  const timePickerOptions = ["Date", "Week", "Month", "Quarter", "Year"];
+  const [selectedNode, setSelectedNode] = useState(nodes[0]);
+  const [selectedTimeOption, setSelectedTimeOption] = useState(
+    timePickerOptions[0]
+  );
+  const [selectedTime, setSelectedTime] = useState<string>();
   return (
     <Thead className="pem-head">
       <Tr>
         <Td className="nodes" rowSpan={2}>
-          <DropDown.node className="" options={nodes} />
+          <DropDown
+            defaultValue={nodes[0]}
+            value={selectedNode}
+            options={nodes}
+            onChange={(e) => setSelectedNode(e.target.value)}
+          />
         </Td>
         <Td className="month opacity07">
-          <DropDown.time
+          <DropDown
             options={timePickerOptions}
-            setSelectedTimeOption={setSelectedTimeOption}
+            defaultValue={timePickerOptions[0]}
+            value={selectedTimeOption}
+            onChange={(e) => setSelectedTimeOption(e.target.value)}
           />
         </Td>
         <Td className="settle opacity07">SETTLE</Td>
         <Td rowSpan={2} colSpan={17} className="font-large">
-          {selectedTime
-            ? selectedTime
-            : dayjs().format("YYYY-MM-DD")}
+          {selectedTime ? selectedTime : dayjs().format("YYYY-MM-DD")}
         </Td>
       </Tr>
       <Tr>
@@ -49,11 +49,11 @@ const PemTableHead = () => {
       <Tr isCategories>
         <Td>Active</Td>
         <Td>Date</Td>
-        <Td>Buy/Sell</Td>
-        <Td>Call/Put</Td>
+        <Td highlighted>Buy/Sell</Td>
+        <Td highlighted>Call/Put</Td>
         <Td>Price(/lot)</Td>
         <Td>Cost</Td>
-        <Td>Strike</Td>
+        <Td highlighted>Strike</Td>
         <Td>Underlying</Td>
         <Td>Hours</Td>
         <Td>Delta</Td>
@@ -62,7 +62,7 @@ const PemTableHead = () => {
         <Td>Premium</Td>
         <Td>Underlying</Td>
         <Td>Strike</Td>
-        <Td>Volatility</Td>
+        <Td highlighted>Volatility</Td>
         <Td>Interest rate</Td>
         <Td>Dividend yld</Td>
         <Td>Days to exp</Td>

@@ -1,25 +1,20 @@
 import React from "react";
 import "./InputComponent.scss";
-import { InputComponentType } from "../../types/GeneralTypes";
-interface InputComponentProps {
-  type?: InputComponentType;
+interface InputComponentProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   defaultValue?: number | string;
+  label?: string;
 }
 
-const InputComponent: React.FC<InputComponentProps> = ({
-  type,
-  defaultValue,
-}) => {
-  return (
-    <div className="input-component">
-      {type && type === "number" && <p>$</p>}
-      <input
-        type={type ? type : "number"}
-        min={0}
-        defaultValue={defaultValue ? defaultValue : 0}
-      />
-    </div>
-  );
-};
+const InputComponent = React.forwardRef<HTMLInputElement, InputComponentProps>(
+  ({ defaultValue, label, ...props }, ref) => {
+    return (
+      <div className="input-component">
+        {label && <label htmlFor="input-component">{label}</label>}
+        <input ref={ref} id="input-component" min={0} {...props} />
+      </div>
+    );
+  }
+);
 
 export default InputComponent;

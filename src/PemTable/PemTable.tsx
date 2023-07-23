@@ -7,13 +7,13 @@ import Tr from "../TableComponents/Tr";
 import CreateNew from "../components/CreateNew/CreateNew";
 import Td from "../TableComponents/Td";
 import Tfoot from "../TableComponents/Tfoot";
-import { zustandStore } from "../Zustand/store";
-import TableBodyRow from "./component/TableBodyRow";
+import { pemTableStore } from "../Zustand/pemTableStore";
 
 const PemTable = () => {
-  const [isCreateMode, setIsCreateMode] = zustandStore(
-    (state) => [state.isCreateMode, state.setIsCreateMode]
-  );
+  const [isCreateMode, setIsCreateMode] = pemTableStore((state) => [
+    state.isCreateMode,
+    state.setIsCreateMode,
+  ]);
   const handleClick = () => {
     setIsCreateMode(!isCreateMode);
   };
@@ -22,6 +22,14 @@ const PemTable = () => {
       <PemTableHead />
       <PemTableBody />
       <Tfoot>
+        <Tr>
+          <Td>
+            <div className="note">
+              <div className="colored-note"></div>
+              <p className="description">Editable</p>
+            </div>
+          </Td>
+        </Tr>
         <Tr>
           <Td colSpan={20}>
             <div onClick={() => handleClick()}>

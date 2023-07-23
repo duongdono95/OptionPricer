@@ -48,8 +48,8 @@ const Graphs = () => {
       ]}
       layout={{
 
-        width: 900,
-        height: 900,
+        width: 700,
+        height: 700,
         margin: {
           l: 50,
           r: 50,

@@ -1,18 +1,12 @@
 import { PlusSquare, Send } from "lucide-react";
 import "./CreateNew.scss";
 import React from "react";
-import { zustandStore } from "../../Zustand/store";
+import { pemTableStore } from "../../Zustand/pemTableStore";
 
 const CreateNew = () => {
-  const { isCreateMode, setIsCreateMode } = zustandStore();
+  const { isCreateMode, setIsCreateMode } = pemTableStore();
   return (
-    <div
-      className={
-        isCreateMode
-          ? "create-new isCreateMode"
-          : "create-new"
-      }
-    >
+    <div className={isCreateMode ? "create-new isCreateMode" : "create-new"}>
       {isCreateMode ? (
         <div onClick={() => setIsCreateMode(!isCreateMode)}>
           <Send />

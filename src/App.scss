@@ -6,4 +6,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+  .App-Graph {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+    max-width: 1500px;
+    justify-content: space-between;
+    padding: 5% 1%;
+    margin: 0 auto;
+    background-color: var(--black005);
+  }
+}
+@media (max-width: 1300px) {
+  .App-Graph {
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: 50px;
+  }
 }
