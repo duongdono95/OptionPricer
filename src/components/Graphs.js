@@ -30,7 +30,7 @@ const graphData = {
     [8.93, 8.97, 8.97, 9.18, 9.2, 9.18],
   ],
   masterGraph: {
-    title: "3D Surface Graph",
+    title: "",
     xAxis: xAxisTitle,
     yAxis: yAxisTitle,
     zAxis: zAxisTitle,
