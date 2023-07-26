@@ -4,18 +4,18 @@ import {
 
 import create from "zustand";
 
-interface PemTableState {
+interface OPTableStates {
   isCreateMode: boolean;
   tableRowDataArr: OptionProperties[] | [];
 }
-interface PemTableAction {
+interface OPTableActions {
   setIsCreateMode: (
-    isLoading: PemTableState["isCreateMode"]
+    isLoading: OPTableStates["isCreateMode"]
   ) => void;
   setTableRowDataArr: (newRow: OptionProperties) => void;
 }
 
-export const pemTableStore = create<PemTableState & PemTableAction>()(
+export const OPTableStore = create<OPTableStates & OPTableActions>()(
   (set) => ({
     //  Create a new row
     isCreateMode: false,

@@ -6,6 +6,8 @@ import {
   CallPutConstantType,
   NodeType,
 } from "./GeneralTypes";
+import moment from "moment";
+import dayjs from "dayjs";
 
 export const CallPutConstants: OptionType[] = [
   OptionType.CALL,
@@ -38,8 +40,10 @@ export const EmptyDataRow: OptionProperties = {
   optionType: OptionType.PUT,
   underlyingPrice: 0,
   strikePrice: 0,
-  expiryDate: "0/0/0",
+  expiryDate: dayjs().format("YYYY-MM-DD"),
   riskFreeRate: 0,
   dividendYield: 0,
   impliedVolatility: 0,
 };
+
+export const timePickerOptions = ["Date", "Week", "Month", "Quarter", "Year"];

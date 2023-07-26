@@ -4,7 +4,7 @@ import type { DatePickerProps } from "antd";
 import dayjs from "dayjs";
 import "./TimePicker.scss";
 interface TimePickerProps {
-  selectedTimeOption: any;
+  selectedTimeOption: string;
   setSelectedTime: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 

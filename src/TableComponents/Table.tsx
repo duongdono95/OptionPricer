@@ -7,7 +7,7 @@ interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({ children, ...props }, ref) => {
     return (
-      <table id="PemDynamicTable" ref={ref} {...props}>
+      <table id="AEDynamicTable" ref={ref} {...props}>
         {children}
       </table>
     );

@@ -6,6 +6,7 @@ import SwitchButton from "../../components/SwitchButton/SwitchButton";
 import { numDataConverter } from "../../helpers/helper";
 import Td from "../../TableComponents/Td";
 import Tr from "../../TableComponents/Tr";
+import OptionExpDate from "../../components/OptionExpDate/OptionExpDate";
 
 const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
   const [optionType, setOptionType] = useState<
@@ -16,8 +17,10 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
       <Td title="check box">
         <CheckBox />
       </Td>
-      <Td title="Exp Date">{rowData.expiryDate}</Td>
-      <Td highlighted title="Buy/Sell">
+      <Td title="Exp Date">
+        <OptionExpDate />
+      </Td>
+      <Td title="Buy/Sell">
         <HighlightedData role="Buy" tradedValue={10} />
       </Td>
       <Td highlighted title="Call/Put">
@@ -55,6 +58,7 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
         <p>{rowData.daysToExpiry} days</p>
       </Td>
       <Td title="Year to Expire">{numDataConverter(rowData.yearsToExpiry)}</Td>
+      {/* <Td></Td> */}
     </Tr>
   );
 };

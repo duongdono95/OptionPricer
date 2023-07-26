@@ -1,16 +1,15 @@
-#PemDynamicTable {
+#AEDynamicTable {
   border-collapse: collapse;
   td {
     padding: 5px;
     min-width: 50px;
-    width: fit-content;
     position: relative;
   }
 
   td {
     font-weight: 500;
   }
-  .pem-data---container {
+  .AE-data---container {
     width: 100%;
     display: flex;
     align-items: center;

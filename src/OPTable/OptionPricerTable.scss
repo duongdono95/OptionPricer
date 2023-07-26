@@ -1,0 +1,84 @@
+.table {
+  margin: 10px 0;
+  border: 1px solid var(--black02);
+  .ant-picker {
+    color: blue;
+  }
+
+  .month {
+    background-color: var(--black005);
+  }
+  .settle {
+    background-color: white;
+    color: white;
+  }
+  .font-large {
+    font-size: 28px;
+  }
+
+  .nodes {
+    width: 70px;
+  }
+  .settle {
+    background-color: var(--black01);
+  }
+  .settle {
+    font-size: 14px;
+    background-color: var(--black005);
+    .content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--signature);
+    }
+  }
+  .date-today {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    .label {
+      opacity: 0.5;
+    }
+    .value {
+      opacity: 0.8;
+    }
+  }
+  .note {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    gap: 5px;
+    background-color: var(--black005);
+    .colored-note {
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      background-color: var(--signature05);
+      border-radius: 5px;
+    }
+  }
+  .OP-table-categories {
+    font-size: 12px !important;
+  }
+  .table-footer {
+    display: flex;
+  }
+  .new-row-btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .create-row-hide {
+    display: none;
+  }
+}
+input {
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid var(--black01);
+  text-align: right;
+}

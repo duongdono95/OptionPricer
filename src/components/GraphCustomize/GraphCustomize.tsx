@@ -49,6 +49,7 @@ const GraphCustomize = () => {
               )}
               defaultValue={selectedOption1}
               onChange={(e) => setSelectedOption1(e.target.value)}
+              value={selectedOption1}
             />
           </td>
           <td>
@@ -82,6 +83,7 @@ const GraphCustomize = () => {
               )}
               defaultValue={selectedOption2}
               onChange={(e) => setSelectedOption2(e.target.value)}
+              value={selectedOption2}
             />
           </td>
           <td>
@@ -113,6 +115,7 @@ const GraphCustomize = () => {
               )}
               defaultValue={selectedOption3}
               onChange={(e) => setSelectedOption3(e.target.value)}
+              value={selectedOption3}
             />
           </td>
           <td>

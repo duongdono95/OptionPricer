@@ -1,0 +1,32 @@
+.OPButton {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 10px;
+  transition: 0.3s all;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 5px 5px 10px var(--black03);
+  &:hover {
+    opacity: 1;
+    box-shadow: 2px 2px 10px var(--black03);
+    transform: scale(0.98);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+.primary {
+  background-color: var(--signature);
+  color: white;
+  p {
+    color: white;
+  }
+}
+.secondary {
+  background-color: rgb(164, 164, 164);
+  color: white;
+}

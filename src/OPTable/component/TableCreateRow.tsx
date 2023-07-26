@@ -1,78 +1,104 @@
-import { OptionType } from "@pantheon-tech/bsm-optionmodel";
+import { OptionProperties, OptionType } from "@pantheon-tech/bsm-optionmodel";
 import React, { useState } from "react";
 import CheckBox from "../../components/CheckBox/CheckBox";
-
 import SwitchButton from "../../components/SwitchButton/SwitchButton";
 import Td from "../../TableComponents/Td";
 import Tr from "../../TableComponents/Tr";
-import { EmptyDataRow } from "../../types/constant";
-const TableCreateRow = () => {
-  const [initialOption, setInitialOption] = useState(EmptyDataRow);
+import OptionExpDate from "../../components/OptionExpDate/OptionExpDate";
+
+interface TableCreateRowProps {
+  isCreateMode: boolean;
+  createRow: OptionProperties;
+  setCreateRow: React.Dispatch<React.SetStateAction<OptionProperties>>;
+}
+
+const TableCreateRow: React.FC<TableCreateRowProps> = ({
+  createRow,
+  setCreateRow,
+  isCreateMode,
+}) => {
   const [optionType, setOptionType] = useState<
     OptionType.PUT | OptionType.CALL
   >(OptionType.PUT);
-
   return (
-    <Tr isCategories>
+    <Tr className={isCreateMode ? "" : "create-row-hide"}>
       <Td title="check box">
         <CheckBox />
       </Td>
       <Td title="Exp Date">
-        <input type="text" defaultValue={initialOption.expiryDate} />
+        <OptionExpDate />
       </Td>
-      <Td highlighted title="Buy/Sell">
-        <input defaultValue={0} />
+      <Td title="Buy/Sell">
+        <p>0</p>
       </Td>
       <Td highlighted title="Call/Put">
         <SwitchButton optionType={optionType} setOptionType={setOptionType} />
       </Td>
       <Td title="Price(/lot)">
-        <input defaultValue={initialOption.optionPrice} />
+        <p>0</p>
       </Td>
       <Td title="Cost">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td highlighted title="Strike">
-        <input defaultValue={0} />
+        <input
+          value={createRow.strikePrice}
+          defaultValue={0}
+          onChange={(e) =>
+            setCreateRow({
+              ...createRow,
+              strikePrice: parseInt(e.target.value),
+            })
+          }
+        />
       </Td>
       <Td title="Underlying">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Hours">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Delta">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Theta">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Vega">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Premium">
         <p>0</p>
       </Td>
       <Td title="Underlying">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Strike">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td highlighted title="volatility">
-        <input defaultValue={0} />
+        <input
+          value={createRow.impliedVolatility}
+          defaultValue={0}
+          onChange={(e) =>
+            setCreateRow({
+              ...createRow,
+              impliedVolatility: parseInt(e.target.value),
+            })
+          }
+        />
       </Td>
       <Td title="Interest rate">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Dividend Yield">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Day to Expire">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
       <Td title="Year to Expire">
-        <input defaultValue={0} />
+        <p>0</p>
       </Td>
     </Tr>
   );
