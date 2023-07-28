@@ -19,22 +19,14 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
       {CallPutConstants.map((item, index) => {
         return (
           <div
-            className={
-              optionType === item
-                ? "side flex-grow"
-                : "side"
-            }
+            className={optionType === item ? "side width60" : "side width20"}
             key={index}
             onClick={() => setOptionType(item)}
             style={{
               backgroundColor: `var(--${item.toLowerCase()}-side)`,
             }}
           >
-            {optionType === item
-              ? item === "C"
-                ? "Call"
-                : "Put"
-              : item}
+            {optionType === item ? (item === "C" ? "Call" : "Put") : item}
           </div>
         );
       })}

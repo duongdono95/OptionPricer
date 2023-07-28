@@ -1,40 +1,45 @@
-import { PlusSquare, Send } from "lucide-react";
+import { PlusSquare, Send, Trash } from "lucide-react";
 import "./OPTableButtons.scss";
 import React from "react";
-import OPButton from "./OPButton";
+import DynamicButton from "./DynamicButton";
 
-const CreateNewBTN = () => {
+const CreateNewBTN = ({ ...props }) => {
   return (
-    <OPButton className="primary">
+    <DynamicButton className="primary" {...props}>
       <PlusSquare />
       <p>Create New Row</p>
-    </OPButton>
+    </DynamicButton>
   );
 };
 
-const PostNewBTN = () => {
+const PostNewBTN = ({ ...props }) => {
   return (
-    <OPButton className="primary">
+    <DynamicButton className="primary" {...props}>
       <Send />
       <p>Post New Row</p>
-    </OPButton>
+    </DynamicButton>
   );
 };
 
-const CancelBTN = () => {
+const CancelBTN = ({ ...props }) => {
   return (
-    <OPButton className="secondary">
+    <DynamicButton className="secondary" {...props}>
       <p>Cancel</p>
-    </OPButton>
+    </DynamicButton>
   );
 };
 
-const TrashBTN = () => {
-  return;
+const TrashBTN = ({ ...props }) => {
+  return (
+    <DynamicButton className="secondary" {...props}>
+      <Trash size={16} strokeWidth={3} />
+    </DynamicButton>
+  );
 };
 
 export const OPTableButtons = {
   Create: CreateNewBTN,
   Post: PostNewBTN,
   Cancel: CancelBTN,
+  Delete: TrashBTN,
 };

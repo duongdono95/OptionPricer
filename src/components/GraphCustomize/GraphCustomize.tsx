@@ -33,9 +33,11 @@ const GraphCustomize = () => {
   return (
     <table className="graph-customize">
       <thead>
-        <td colSpan={9}>
-          <h3>Graph Setting</h3>
-        </td>
+        <tr>
+          <td colSpan={9}>
+            <h3>Graph Setting</h3>
+          </td>
+        </tr>
       </thead>
       <tbody>
         <tr>

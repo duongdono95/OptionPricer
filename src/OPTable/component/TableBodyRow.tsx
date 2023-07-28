@@ -7,11 +7,15 @@ import { numDataConverter } from "../../helpers/helper";
 import Td from "../../TableComponents/Td";
 import Tr from "../../TableComponents/Tr";
 import OptionExpDate from "../../components/OptionExpDate/OptionExpDate";
+import { OPTableButtons } from "../../components/OPTableButtons/OPTableButtons";
+import { toast } from "../../components/Toast/Toast";
+import Tippy from "@tippyjs/react/headless"; // different import path!
 
 const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
   const [optionType, setOptionType] = useState<
     OptionType.PUT | OptionType.CALL
   >(OptionType.PUT);
+
   return (
     <Tr isCategories>
       <Td title="check box">
@@ -28,10 +32,13 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
       </Td>
       <Td title="Price(/lot)">{numDataConverter(rowData.optionPrice)}</Td>
       <Td title="Cost">
-        <input defaultValue={100} />
+        <p>{0}</p>
       </Td>
       <Td highlighted title="Strike">
-        {numDataConverter(rowData.strikePrice)}
+        <input
+          type="number"
+          defaultValue={numDataConverter(rowData.strikePrice)}
+        />
       </Td>
       <Td title="Underlying">{numDataConverter(rowData.underlyingPrice)}</Td>
       <Td title="Hours">
@@ -50,7 +57,10 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
       <Td title="Underlying">{numDataConverter(rowData.underlyingPrice)}</Td>
       <Td title="Strike">{numDataConverter(rowData.strikePrice)}</Td>
       <Td highlighted title="volatility">
-        {numDataConverter(rowData.impliedVolatility)}
+        <input
+          type="number"
+          defaultValue={numDataConverter(rowData.impliedVolatility)}
+        />
       </Td>
       <Td title="Interest rate">{numDataConverter(rowData.riskFreeRate)}</Td>
       <Td title="Dividend Yield">{numDataConverter(rowData.dividendYield)}</Td>
@@ -58,7 +68,21 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
         <p>{rowData.daysToExpiry} days</p>
       </Td>
       <Td title="Year to Expire">{numDataConverter(rowData.yearsToExpiry)}</Td>
-      {/* <Td></Td> */}
+      <Td>
+        <Tippy
+          render={(attrs) => (
+            <div className="box" tabIndex={-1} {...attrs}>
+              My tippy box
+            </div>
+          )}
+          placement="left"
+          interactive
+        >
+          <div>
+            <OPTableButtons.Delete />
+          </div>
+        </Tippy>
+      </Td>
     </Tr>
   );
 };

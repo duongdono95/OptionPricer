@@ -5,7 +5,8 @@ import GraphCustomize from "./components/GraphCustomize/GraphCustomize";
 import { GetOption } from "./helpers/getOption";
 import OptionPricerTable from "./OPTable/OptionPricerTable";
 import { OPTableStore } from "./Zustand/OPTableStore";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [setTableRowDataArr] = OPTableStore((state) => [
     state.setTableRowDataArr,
@@ -18,6 +19,18 @@ function App() {
   }, [firstRow, setTableRowDataArr]);
   return (
     <div className="App">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <OptionPricerTable />
       <div className="App-Graph">
         <GraphCustomize />

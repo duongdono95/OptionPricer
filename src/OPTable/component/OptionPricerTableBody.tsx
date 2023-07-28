@@ -41,25 +41,21 @@ const OptionPricerTableBody: React.FC = () => {
         setCreateRow={setCreateRow}
         isCreateMode={isCreateMode}
       />
-      <Tr>
-        <Td colSpan={20}>
+      <Tr className="row-btns">
+        <Td colSpan={21}>
           {!isCreateMode && (
-            <div onClick={() => handleOpenCreateMode()}>
-              <OPTableButtons.Create />
-            </div>
+            <OPTableButtons.Create
+              // isLoading={true}
+              onClick={() => handleOpenCreateMode()}
+            />
           )}
           {isCreateMode && (
             <div className="new-row-btns">
-              <div onClick={() => handleCancel()}>
-                <OPTableButtons.Cancel />
-              </div>
-              <div onClick={() => handlePostNewRow()}>
-                <OPTableButtons.Post />
-              </div>
+              <OPTableButtons.Cancel onClick={() => handleCancel()} />
+              <OPTableButtons.Post onClick={() => handlePostNewRow()} />
             </div>
           )}
         </Td>
-        {/* <Td></Td> */}
       </Tr>
     </Tbody>
   );

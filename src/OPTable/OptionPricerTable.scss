@@ -1,6 +1,16 @@
 .table {
   margin: 10px 0;
   border: 1px solid var(--black02);
+  tbody {
+    tr {
+      box-shadow: inset 0px -3px 5px var(--black005);
+      border-bottom: 1px solid var(--black005);
+      &.row-btns {
+        box-shadow: none;
+        background-color: white;
+      }
+    }
+  }
   .ant-picker {
     color: blue;
   }
@@ -74,6 +84,9 @@
 
   .create-row-hide {
     display: none;
+  }
+  input {
+    border-bottom: 1px solid var(--black02);
   }
 }
 input {

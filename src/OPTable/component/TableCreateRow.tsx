@@ -42,8 +42,8 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
       </Td>
       <Td highlighted title="Strike">
         <input
+          type="number"
           value={createRow.strikePrice}
-          defaultValue={0}
           onChange={(e) =>
             setCreateRow({
               ...createRow,
@@ -78,8 +78,8 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
       </Td>
       <Td highlighted title="volatility">
         <input
+          type="number"
           value={createRow.impliedVolatility}
-          defaultValue={0}
           onChange={(e) =>
             setCreateRow({
               ...createRow,
@@ -99,6 +99,9 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
       </Td>
       <Td title="Year to Expire">
         <p>0</p>
+      </Td>
+      <Td>
+        <p></p>
       </Td>
     </Tr>
   );
