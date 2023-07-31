@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import "./OPTableButtons.scss";
 import { Loader } from "lucide-react";
@@ -11,10 +11,11 @@ interface DynamicButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 const DynamicButton = React.forwardRef<HTMLButtonElement, DynamicButtonProps>(
   ({ isLoading, children, className, ...props }, ref) => {
     const combinedClassNames = classNames(className, "OPButton");
+    const [isLoading1, setIsLoading1] = useState(false);
     return (
       <button ref={ref} className={combinedClassNames} {...props}>
         {children}
-        {isLoading && <Loader size={20} className="loader" />}
+        {isLoading1 && <Loader size={20} className="loader" />}
       </button>
     );
   }

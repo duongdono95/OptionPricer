@@ -10,12 +10,12 @@ import OptionExpDate from "../../components/OptionExpDate/OptionExpDate";
 import { OPTableButtons } from "../../components/OPTableButtons/OPTableButtons";
 import { toast } from "../../components/Toast/Toast";
 import Tippy from "@tippyjs/react/headless"; // different import path!
+import TippySlider from "../../components/TippySlider/TippySlider";
 
 const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
   const [optionType, setOptionType] = useState<
     OptionType.PUT | OptionType.CALL
   >(OptionType.PUT);
-
   return (
     <Tr isCategories>
       <Td title="check box">
@@ -70,13 +70,16 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
       <Td title="Year to Expire">{numDataConverter(rowData.yearsToExpiry)}</Td>
       <Td>
         <Tippy
-          render={(attrs) => (
-            <div className="box" tabIndex={-1} {...attrs}>
-              My tippy box
-            </div>
-          )}
           placement="left"
           interactive
+          trigger="click"
+          offset={[0, 5]}
+          animateFill
+          render={(attrs) => (
+            <div className="box" tabIndex={-1} {...attrs}>
+              <TippySlider message="Confirm Deletion" />
+            </div>
+          )}
         >
           <div>
             <OPTableButtons.Delete />

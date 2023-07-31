@@ -1,4 +1,4 @@
-.App {
+.Home {
   width: 100vw;
   min-height: 100vh;
   height: 100%;
@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
-  .App-Graph {
+  .Home-Graph {
     display: flex;
     align-items: flex-start;
 
@@ -20,7 +20,7 @@
   }
 }
 @media (max-width: 1300px) {
-  .App-Graph {
+  .Home-Graph {
     flex-wrap: wrap;
     justify-content: center !important;
     gap: 50px;
