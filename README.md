@@ -19,8 +19,4 @@ step: 1,
 }
 });
 
-Daniel Skipper
-Director
-DDI: +64 9 930 5411
-Mobile : +64 21 588 975
-Broking : +64 9 930 5410
+export const CreateGraphCollector = () => {};

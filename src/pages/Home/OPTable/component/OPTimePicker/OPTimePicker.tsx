@@ -2,47 +2,48 @@ import React from "react";
 import { DatePicker, Space } from "antd";
 import type { DatePickerProps } from "antd";
 import dayjs from "dayjs";
-import "./TimePicker.scss";
-interface TimePickerProps {
+import "./OPTimePicker.scss";
+interface OPTimePickerProps {
   selectedTimeOption: string;
-  setSelectedTime: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setSelectedTime?: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-const TimePicker: React.FC<TimePickerProps> = ({
+const OPTimePicker: React.FC<OPTimePickerProps> = ({
   selectedTimeOption,
   setSelectedTime,
 }) => {
+  const timeType = selectedTimeOption.toLowerCase();
   const defaultDate = dayjs();
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-    setSelectedTime(dateString);
+    setSelectedTime && setSelectedTime(dateString);
   };
   return (
     <Space direction={"vertical"}>
-      {selectedTimeOption === "Date" && (
+      {timeType === "date" && (
         <DatePicker defaultValue={defaultDate} onChange={onChange} />
       )}
-      {selectedTimeOption === "Week" && (
+      {timeType === "week" && (
         <DatePicker
           onChange={onChange}
           defaultValue={defaultDate}
           picker="week"
         />
       )}
-      {selectedTimeOption === "Month" && (
+      {timeType === "month" && (
         <DatePicker
           defaultValue={defaultDate}
           onChange={onChange}
           picker="month"
         />
       )}
-      {selectedTimeOption === "Quarter" && (
+      {timeType === "quarter" && (
         <DatePicker
           defaultValue={defaultDate}
           onChange={onChange}
           picker="quarter"
         />
       )}
-      {selectedTimeOption === "Year" && (
+      {timeType === "year" && (
         <DatePicker
           defaultValue={defaultDate}
           onChange={onChange}
@@ -53,4 +54,4 @@ const TimePicker: React.FC<TimePickerProps> = ({
   );
 };
 
-export default TimePicker;
+export default OPTimePicker;

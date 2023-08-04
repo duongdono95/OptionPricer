@@ -1,10 +1,10 @@
 import { OptionProperties, OptionType } from "@pantheon-tech/bsm-optionmodel";
 import React, { useState } from "react";
-import CheckBox from "../../components/CheckBox/CheckBox";
-import SwitchButton from "../../components/SwitchButton/SwitchButton";
-import Td from "../../TableComponents/Td";
-import Tr from "../../TableComponents/Tr";
-import OptionExpDate from "../../components/OptionExpDate/OptionExpDate";
+import CheckBox from "../../../../components/CheckBox/CheckBox";
+import SwitchButton from "../../../../components/SwitchButton/SwitchButton";
+import Td from "../../../../DynamicTable/Td";
+import Tr from "../../../../DynamicTable/Tr";
+import OPDateSelection from "./OPDateSelection/OPDateSelection";
 
 interface TableCreateRowProps {
   isCreateMode: boolean;
@@ -26,7 +26,7 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
         <CheckBox />
       </Td>
       <Td title="Exp Date">
-        <OptionExpDate />
+        <OPDateSelection />
       </Td>
       <Td title="Buy/Sell">
         <p>0</p>

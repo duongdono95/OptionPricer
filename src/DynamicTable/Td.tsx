@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Table.scss";
 interface TdProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
   children: React.ReactNode;
   highlighted?: boolean;

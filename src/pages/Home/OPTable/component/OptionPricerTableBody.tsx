@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Tbody from "../../TableComponents/Tbody";
+import Tbody from "../../../../DynamicTable/Tbody";
 import TableBodyRow from "./TableBodyRow";
 import TableCreateRow from "./TableCreateRow";
-import Tr from "../../TableComponents/Tr";
-import Td from "../../TableComponents/Td";
-import { EmptyDataRow } from "../../types/constant";
-import { OPTableButtons } from "../../components/OPTableButtons/OPTableButtons";
-import { OPTableStore } from "../../Zustand/OPTableStore";
+import Tr from "../../../../DynamicTable/Tr";
+import Td from "../../../../DynamicTable/Td";
+import { EmptyDataRow } from "../../../../libs/types/constant";
+import { OPTableButtons } from "../../../../components/OPTableButtons/OPTableButtons";
+import { OPTableStore } from "../../../../Zustand/OPTableStore";
 
 const OptionPricerTableBody: React.FC = () => {
   const [isCreateMode, setIsCreateMode, tableRowDataArr, setTableRowDataArr] =

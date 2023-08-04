@@ -1,0 +1,30 @@
+.WC-page-content {
+  width: 100%;
+  .seasons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  .season {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    opacity: 0.7;
+    .color {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      border: 1px solid var(--black02);
+    }
+    .winter {
+      background-color: rgba($color: #0500ff, $alpha: 0.5);
+    }
+    .summer {
+      background-color: rgba($color: #fbc400, $alpha: 0.5);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./SwitchButton.scss";
-import { CallPutConstants } from "../../types/constant";
+import { CallPutConstants } from "../../libs/types/constant";
 import { OptionType } from "@pantheon-tech/bsm-optionmodel";
 
 interface SwitchButtonProps {

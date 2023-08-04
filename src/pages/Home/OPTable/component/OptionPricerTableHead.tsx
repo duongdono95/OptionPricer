@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Thead from "../../TableComponents/Thead";
-import Tr from "../../TableComponents/Tr";
-import DropDown from "../../components/DropDown/DropDown";
-import Td from "../../TableComponents/Td";
+import Thead from "../../../../DynamicTable/Thead";
+import Tr from "../../../../DynamicTable/Tr";
+import DropDown from "../../../../components/DropDown/DropDown";
+import Td from "../../../../DynamicTable/Td";
 import dayjs from "dayjs";
 const OptionPricerTableHead = () => {
   const nodes = ["OTA", "BEN"];

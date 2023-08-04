@@ -1,6 +1,6 @@
 import { OptionType } from "@pantheon-tech/bsm-optionmodel";
 import { useEffect } from "react";
-import { useOptionModel } from "../components/useOptionModel";
+import { useOptionModel } from "../../components/useOptionModel";
 
 export const GetOption = () => {
   const X = 50;

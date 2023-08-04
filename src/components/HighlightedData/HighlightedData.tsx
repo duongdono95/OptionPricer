@@ -1,6 +1,6 @@
 import React from "react";
 import "./HighlightedData.scss";
-import { TradingRole } from "../../types/GeneralTypes";
+import { TradingRole } from "../../libs/types/GeneralTypes";
 
 interface HighlightedDataProps {
   role: TradingRole;

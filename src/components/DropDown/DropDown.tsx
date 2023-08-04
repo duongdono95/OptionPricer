@@ -10,13 +10,17 @@ const DropDown = React.forwardRef<HTMLSelectElement, DropdownProps>(
     return (
       <select
         ref={ref}
-        // onChange={(e) => handleOnChange(e)}
         defaultValue={defaultValue ?? options[0]}
         className="default-dropdown"
         {...props}
       >
         {options.map((option: any, index: number) => {
-          return <option key={index}>{option}</option>;
+          return (
+            <option key={index}>
+              {option.charAt(0).toUpperCase()}
+              {option.slice(1)}
+            </option>
+          );
         })}
       </select>
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import OptionPricerTable from "../../OPTable/OptionPricerTable";
+import OptionPricerTable from "./OPTable/OptionPricerTable";
 import GraphCustomize from "../../components/GraphCustomize/GraphCustomize";
 import Graphs from "../../components/Graphs";
 import "./Home.scss";

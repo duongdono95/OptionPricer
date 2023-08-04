@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { GetOption } from "./helpers/getOption";
+import { GetOption } from "./libs/hooks/getOption";
 import { OPTableStore } from "./Zustand/OPTableStore";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

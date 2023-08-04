@@ -1,0 +1,36 @@
+.WCTimePicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 400px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 10px 0;
+  .difference-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .label {
+      font-size: 16px;
+      opacity: 0.7;
+      font-weight: 500;
+    }
+    .value {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .nan {
+      opacity: 0.7;
+    }
+    .unit {
+      font-size: 12px;
+      padding-top: 2px;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .WCTimePicker {
+    flex-wrap: wrap;
+  }
+}
