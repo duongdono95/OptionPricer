@@ -1,10 +1,16 @@
 import React from "react";
 import Thead from "../../../../../DynamicTable/Thead";
-import WCTableRow from "./WCTableRow";
+import Td from "../../../../../DynamicTable/Td";
+import Tr from "../../../../../DynamicTable/Tr";
 const WCTableHeader = () => {
   return (
     <Thead>
-      <WCTableRow />
+      <Tr isCategories>
+        <Td>MONTH</Td>
+        <Td>QUARTER</Td>
+        <Td>SEASON</Td>
+        <Td>YEAR</Td>
+      </Tr>
     </Thead>
   );
 };

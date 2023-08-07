@@ -2,6 +2,7 @@ import React from "react";
 import "./WCTable.scss";
 import WCTableHeader from "./components/WCTableHeader";
 import Table from "../../../../DynamicTable/Table";
+import WCTableBody from "./components/WCTableBody";
 const WCTable = () => {
   return (
     <div className="WC-page-content">
@@ -15,8 +16,9 @@ const WCTable = () => {
           <p>Winter</p>
         </div>
       </div>
-      <Table>
+      <Table className="wc-year-container">
         <WCTableHeader />
+        <WCTableBody />
       </Table>
     </div>
   );

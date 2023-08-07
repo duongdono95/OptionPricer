@@ -47,3 +47,89 @@ export const EmptyDataRow: OptionProperties = {
 
 export const OPTimePickerOptions:OPTimePickerOptionsType[] =  ["date" , "week" , "month" , "quarter" , "year"];
 
+const monthLabels = [
+  'January',
+  'February',
+  'March',
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+]
+
+const quarterLabels = [
+  1, 2, 3, 4
+]
+
+const seasonLabels  = [
+  'Summer',
+  'Winter'
+]
+
+export const WCTableRowLabels = [
+  {
+    name: monthLabels[0],
+    quarter: quarterLabels[0],
+    season: seasonLabels[0]
+  },
+  {
+    name: monthLabels[1],
+    quarter: quarterLabels[0],
+    season: seasonLabels[0]
+  },
+  {
+    name: monthLabels[2],
+    quarter: quarterLabels[0],
+    season: seasonLabels[0]
+  },
+  {
+    name: monthLabels[3],
+    quarter: quarterLabels[1],
+    season: seasonLabels[1]
+  },
+  {
+    name: monthLabels[4],
+    quarter: quarterLabels[1],
+    season: seasonLabels[1]
+  },
+  {
+    name: monthLabels[5],
+    quarter: quarterLabels[1],
+    season: seasonLabels[1]
+  },
+  {
+    name: monthLabels[6],
+    quarter: quarterLabels[2],
+    season: seasonLabels[1]
+  },
+  {
+    name: monthLabels[7],
+    quarter: quarterLabels[2],
+    season: seasonLabels[1]
+  },
+  {
+    name: monthLabels[8],
+    quarter: quarterLabels[2],
+    season: seasonLabels[1]
+  },
+  {
+    name: monthLabels[9],
+    quarter: quarterLabels[3],
+    season: seasonLabels[0]
+  },
+  {
+    name: monthLabels[10],
+    quarter: quarterLabels[3],
+    season: seasonLabels[0]
+  },
+  {
+    name: monthLabels[11],
+    quarter: quarterLabels[3],
+    season: seasonLabels[0]
+  },
+]

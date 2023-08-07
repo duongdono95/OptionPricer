@@ -1,5 +1,6 @@
 .WC-page-content {
   width: 100%;
+
   .seasons {
     display: flex;
     align-items: center;
@@ -21,10 +22,13 @@
       border: 1px solid var(--black02);
     }
     .winter {
-      background-color: rgba($color: #0500ff, $alpha: 0.5);
+      background-color: var(--winter);
     }
     .summer {
-      background-color: rgba($color: #fbc400, $alpha: 0.5);
+      background-color: var(--summer);
     }
+  }
+  .wc-year-container {
+    overflow: hidden;
   }
 }
