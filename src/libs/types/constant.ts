@@ -71,65 +71,84 @@ const seasonLabels  = [
   'Winter'
 ]
 
-export const WCTableRowLabels = [
+const quarters = {
+  q1: [1, 2, 3],
+  q2: [4, 5, 6],
+  q3: [7, 8, 9],
+  q10: [10, 11, 12]
+}
+
+export const WCYearDetail = [
   {
-    name: monthLabels[0],
-    quarter: quarterLabels[0],
-    season: seasonLabels[0]
+    quarter: 1,
+    months: [
+      {
+        value: 1,
+        month: "January"
+      },
+      {
+        value: 2,
+        month: "February"
+      },
+      {
+        value: 3,
+        month: "March"
+      }
+    ],
+    season: 'Winter'
   },
   {
-    name: monthLabels[1],
-    quarter: quarterLabels[0],
-    season: seasonLabels[0]
+    quarter: 2,
+    months: [
+      {
+        value: 4,
+        month: "April"
+      },
+      {
+        value: 5,
+        month: "May"
+      },
+      {
+        value: 6,
+        month: "June"
+      }
+    ],
+    season: 'Summer'
   },
   {
-    name: monthLabels[2],
-    quarter: quarterLabels[0],
-    season: seasonLabels[0]
+    quarter: 3,
+    months: [
+      {
+        value: 7,
+        month: "July"
+      },
+      {
+        value: 8,
+        month: "August"
+      },
+      {
+        value: 9,
+        month: "September"
+      }
+    ],
+    season: 'Summer'
   },
   {
-    name: monthLabels[3],
-    quarter: quarterLabels[1],
-    season: seasonLabels[1]
-  },
-  {
-    name: monthLabels[4],
-    quarter: quarterLabels[1],
-    season: seasonLabels[1]
-  },
-  {
-    name: monthLabels[5],
-    quarter: quarterLabels[1],
-    season: seasonLabels[1]
-  },
-  {
-    name: monthLabels[6],
-    quarter: quarterLabels[2],
-    season: seasonLabels[1]
-  },
-  {
-    name: monthLabels[7],
-    quarter: quarterLabels[2],
-    season: seasonLabels[1]
-  },
-  {
-    name: monthLabels[8],
-    quarter: quarterLabels[2],
-    season: seasonLabels[1]
-  },
-  {
-    name: monthLabels[9],
-    quarter: quarterLabels[3],
-    season: seasonLabels[0]
-  },
-  {
-    name: monthLabels[10],
-    quarter: quarterLabels[3],
-    season: seasonLabels[0]
-  },
-  {
-    name: monthLabels[11],
-    quarter: quarterLabels[3],
-    season: seasonLabels[0]
-  },
+    quarter: 4,
+    months: [
+      {
+        value: 10,
+        month: "October"
+      },
+      {
+        value: 11,
+        month: "November"
+      },
+      {
+        value: 12,
+        month: "December"
+      }
+    ],
+    season: 'Winter'
+  }
 ]

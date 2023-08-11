@@ -6,12 +6,24 @@ interface TrProps extends React.HTMLAttributes<HTMLTableRowElement> {
   theadCategories?: boolean;
   className?: string;
   isCategories?: boolean;
+  noColoredRow?: boolean;
 }
 
 const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
-  ({ children, className, theadCategories, isCategories, ...props }, ref) => {
+  (
+    {
+      children,
+      className,
+      theadCategories,
+      isCategories,
+      noColoredRow,
+      ...props
+    },
+    ref
+  ) => {
     const combinedClassNames = classNames(className, {
       isCategories: isCategories,
+      noColoredRow: !noColoredRow,
     });
     return (
       <tr ref={ref} className={combinedClassNames} {...props}>

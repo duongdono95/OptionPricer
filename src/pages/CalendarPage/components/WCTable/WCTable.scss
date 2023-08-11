@@ -1,34 +1,124 @@
 .WC-page-content {
-  width: 100%;
-
-  .seasons {
+  .notes {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 10px;
-  }
-  .season {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 16px;
-    opacity: 0.7;
+    .note {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
     .color {
       width: 20px;
       height: 20px;
-      display: flex;
-      align-items: center;
       border-radius: 5px;
-      border: 1px solid var(--black02);
-    }
-    .winter {
-      background-color: var(--winter);
-    }
-    .summer {
-      background-color: var(--summer);
+      &.summer {
+        background-color: var(--summer);
+      }
+      &.winter {
+        background-color: var(--winter);
+      }
     }
   }
-  .wc-year-container {
-    overflow: hidden;
+}
+.wc-table-year {
+  tr {
+    .months-container {
+      padding: 0 !important;
+      // border-bottom: 1px solid var(--black02);
+    }
+    .months {
+      .month {
+        width: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &.inactive {
+          opacity: 0.5;
+          background-color: var(--black02);
+        }
+      }
+      p {
+        font-size: 12px;
+        font-weight: 500;
+        width: 80%;
+        padding: 5px;
+        text-align: left;
+      }
+    }
+  }
+  .season {
+    font-size: 14px;
+    font-weight: 600;
+    // border-bottom: 1px solid var(--black02);
+    &-winter {
+      background-color: var(--winter05);
+    }
+    &-summer {
+      background-color: var(--summer05);
+    }
+    &.inactive {
+      background-color: var(--black02) !important;
+      opacity: 0.5;
+    }
+  }
+  .quarter {
+    // border-bottom: 1px solid var(--black02);
+    &.inactive {
+      background-color: var(--black03) !important;
+      opacity: 0.5;
+    }
+    &.quarter-1 {
+      background-color: var(--winter08) !important;
+    }
+    &.quarter-4 {
+      background-color: var(--winter08) !important;
+    }
+    &.quarter-2 {
+      background-color: var(--summer08) !important;
+    }
+    &.quarter-3 {
+      background-color: var(--summer08) !important;
+    }
+  }
+  .year {
+    // border-bottom: 1px solid var(--black02);
+    background-color: var(--year08) !important;
+    p {
+      transform: rotate(90deg);
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+    }
+    &.inactive {
+      background-color: var(--black02) !important;
+    }
+  }
+  &:nth-child(odd) {
+    background-color: var(--black005);
+    .year {
+      background-color: var(--year) !important;
+    }
+    .season {
+      &-winter {
+        background-color: var(--winter07);
+      }
+      &-summer {
+        background-color: var(--summer07);
+      }
+    }
+
+    .quarter-1 {
+      background-color: var(--winter) !important;
+    }
+    .quarter-4 {
+      background-color: var(--winter) !important;
+    }
+    .quarter-2 {
+      background-color: var(--summer) !important;
+    }
+    .quarter-3 {
+      background-color: var(--summer) !important;
+    }
   }
 }

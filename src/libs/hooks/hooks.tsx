@@ -2,7 +2,7 @@ import dayjs, { Dayjs } from "dayjs";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import { RangeValue } from "rc-picker/lib/interface";
 import { OPTimePickerOptionsType } from "../types/GeneralTypes";
-import { WCTableRowLabels } from "../types/constant";
+import { WCYearDetail } from "../types/constant";
 
 dayjs.extend(weekOfYear);
 
@@ -26,7 +26,6 @@ export const calculateTimeDifference = (
   values: RangeValue<Dayjs>,
   rangeType: OPTimePickerOptionsType
 ) => {
-  console.log(rangeType);
   const difference = null;
   if (values && values[0] && values[1]) {
     let difference = values[1].diff(
@@ -39,15 +38,38 @@ export const calculateTimeDifference = (
 };
 
 export const addYearToArr = (year: number) => {
-  return WCTableRowLabels.map((item) => ({ ...item, year }));
+  return WCYearDetail.map((item) => ({ ...item, year }));
 };
 
-export const createAllRowData = (years: number[]) => {
-  const allData: {
-    name: string;
-    quarter: string;
-    season: string;
-  }[] = [];
-  const data = years.forEach((year) => console.log(year));
-  //  [...allData, ...addYearToArr(year)]);
+export const createSelectedMonthArr = (start: Dayjs, end: Dayjs) => {
+  const startMonth = start && start.month() + 1;
+  const startYear = start && start.year();
+  const endMonth = end && end.month() + 1;
+  const endYear = end && end.year();
+  const result = [];
+  if (startYear === endYear) {
+    for (let i = startMonth; i <= endMonth; i++) {
+      result.push(i);
+    }
+    return result;
+  }
+  if (startYear < endYear) {
+    for (let year = startYear; year <= endYear; year++) {
+      let monthsForYear = [];
+
+      // find the start and end months for the looped year
+      const monthStart = year === startYear ? startMonth : 1;
+      const monthEnd = year === endYear ? endMonth : 12;
+
+      for (let month = monthStart; month <= monthEnd; month++) {
+        monthsForYear.push(month);
+      }
+
+      result.push({
+        year: year,
+        months: monthsForYear,
+      });
+    }
+    return result;
+  }
 };

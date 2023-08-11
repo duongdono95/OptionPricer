@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import "./CheckBox.scss";
 import { Check } from "lucide-react";
 
-const CheckBox = () => {
+interface CheckBoxProps {
+  isActive?: boolean;
+}
+
+const CheckBox = ({ isActive }: CheckBoxProps) => {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <div className="checkbox" onClick={() => setIsChecked(!isChecked)}>
-      {isChecked && <Check size={20} stroke-width={4} color="#ff6565" />}
+      {isChecked && isActive && (
+        <Check size={20} strokeWidth={4} color="#ff6565" />
+      )}
     </div>
   );
 };

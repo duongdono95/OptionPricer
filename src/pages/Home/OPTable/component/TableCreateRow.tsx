@@ -5,6 +5,7 @@ import SwitchButton from "../../../../components/SwitchButton/SwitchButton";
 import Td from "../../../../DynamicTable/Td";
 import Tr from "../../../../DynamicTable/Tr";
 import OPDateSelection from "./OPDateSelection/OPDateSelection";
+import InputComponent from "../../../../components/InputComponent/InputComponent";
 
 interface TableCreateRowProps {
   isCreateMode: boolean;
@@ -41,7 +42,7 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
         <p>0</p>
       </Td>
       <Td highlighted title="Strike">
-        <input
+        <InputComponent
           type="number"
           value={createRow.strikePrice}
           onChange={(e) =>
@@ -77,7 +78,7 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
         <p>0</p>
       </Td>
       <Td highlighted title="volatility">
-        <input
+        <InputComponent
           type="number"
           value={createRow.impliedVolatility}
           onChange={(e) =>

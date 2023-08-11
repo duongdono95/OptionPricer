@@ -1,9 +1,10 @@
 import { DatePicker, Space } from "antd";
 import React, { useState } from "react";
-import { Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { OPTimePickerOptionsType } from "../../../../libs/types/GeneralTypes";
 import { RangeValue } from "rc-picker/lib/interface";
 import { calculateTimeDifference } from "../../../../libs/hooks/hooks";
+import { WCPageStore } from "../../../../Zustand/CalendarStore";
 
 interface WCTimeRangeProps {
   rangeType: OPTimePickerOptionsType;
@@ -14,15 +15,26 @@ const WCTimeRange: React.FC<WCTimeRangeProps> = ({
   rangeType,
   setTimeDifference,
 }) => {
+  const [setStartTime, setEndTime] = WCPageStore((state) => [
+    state.setStartTime,
+    state.setEndTime,
+  ]);
   const { RangePicker } = DatePicker;
+
   const handleSelection = (
     values: RangeValue<Dayjs>
     // formatString: [string, string]
   ) => {
     setTimeDifference(0);
     const difference = calculateTimeDifference(values, rangeType);
-    console.log(difference);
     setTimeDifference(difference);
+    if (values && values[0]) {
+      console.log(values[0].month());
+    }
+    if (values && values[0] && values[1]) {
+      setStartTime(values[0]);
+      setEndTime(values[1]);
+    }
   };
 
   return (

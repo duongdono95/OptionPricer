@@ -2,7 +2,7 @@ import {
   OptionProperties,
 } from "@pantheon-tech/bsm-optionmodel";
 
-import create from "zustand";
+import {create} from "zustand";
 
 interface OPTableStates {
   isCreateMode: boolean;

@@ -1,21 +1,22 @@
 import React from "react";
 import Tbody from "../../../../../DynamicTable/Tbody";
-import dayjs from "dayjs";
 import WCTableRow from "./WCTableRow";
-import { WCTableRowLabels } from "../../../../../libs/types/constant";
-import { createAllRowData } from "../../../../../libs/hooks/hooks";
+import { WCYearDetail } from "../../../../../libs/types/constant";
+import dayjs from "dayjs";
 
-const WCTableBody = () => {
-  const today = {
-    date: dayjs().date(),
-    month: dayjs().month(),
-    year: dayjs().year(),
-  };
-  const years = [today.year, today.year + 1, today.year + 2, today.year + 3];
-  createAllRowData(years);
+interface WCTableBodyProps {
+  year: number;
+}
+
+const WCTableBody = ({ year }: WCTableBodyProps) => {
+  const today = dayjs();
   return (
-    <Tbody>
-      <p></p>
+    <Tbody className="wc-table-year">
+      {WCYearDetail.map((row, index) => {
+        return (
+          <WCTableRow key={index} row={row} rowYear={year} rowIndex={index} />
+        );
+      })}
     </Tbody>
   );
 };
