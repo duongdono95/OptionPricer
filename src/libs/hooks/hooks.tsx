@@ -49,7 +49,10 @@ export const createSelectedMonthArr = (start: Dayjs, end: Dayjs) => {
   const result = [];
   if (startYear === endYear) {
     for (let i = startMonth; i <= endMonth; i++) {
-      result.push(i);
+      result.push({
+        year: endYear,
+        months: [i],
+      });
     }
     return result;
   }

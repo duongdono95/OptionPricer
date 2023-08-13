@@ -16,6 +16,7 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
   const [optionType, setOptionType] = useState<
     OptionType.PUT | OptionType.CALL
   >(OptionType.PUT);
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <Tr isCategories>
       <Td title="check box">

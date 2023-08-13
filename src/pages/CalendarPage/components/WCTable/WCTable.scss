@@ -34,8 +34,8 @@
         align-items: center;
         justify-content: space-between;
         &.inactive {
-          opacity: 0.5;
-          background-color: var(--black02);
+          opacity: 0.3;
+          background-color: var(--black03);
         }
       }
       p {
@@ -58,15 +58,15 @@
       background-color: var(--summer05);
     }
     &.inactive {
-      background-color: var(--black02) !important;
-      opacity: 0.5;
+      background-color: var(--black03) !important;
+      opacity: 0.3;
     }
   }
   .quarter {
     // border-bottom: 1px solid var(--black02);
     &.inactive {
-      background-color: var(--black03) !important;
-      opacity: 0.5;
+      background-color: var(--black05) !important;
+      opacity: 0.3;
     }
     &.quarter-1 {
       background-color: var(--winter08) !important;
