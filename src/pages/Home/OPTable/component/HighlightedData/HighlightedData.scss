@@ -7,9 +7,9 @@
   align-items: center;
   color: white;
   &.Buy {
-    background-color: var(--buy-role);
+    background-color: var(--buy);
   }
   &.Sell {
-    background-color: var(--sell-role);
+    background-color: var(--sell);
   }
 }

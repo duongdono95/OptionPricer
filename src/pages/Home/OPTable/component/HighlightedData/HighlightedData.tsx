@@ -1,6 +1,6 @@
 import React from "react";
 import "./HighlightedData.scss";
-import { TradingRole } from "../../libs/types/GeneralTypes";
+import { TradingRole } from "../../../../../libs/types/GeneralTypes";
 
 interface HighlightedDataProps {
   role: TradingRole;
@@ -12,11 +12,7 @@ const HighlightedData: React.FC<HighlightedDataProps> = ({
   tradedValue,
 }) => {
   return (
-    <div
-      className={
-        role === "Buy" ? "highlighted-data Buy" : "highlighted-data Sell"
-      }
-    >
+    <div className={`highlighted-data ${role}`}>
       <p className="signature">{role === "Buy" ? "+" : "-"}</p>
       <p className="value">{tradedValue}</p>
     </div>

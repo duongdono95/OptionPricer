@@ -95,7 +95,7 @@ export const WCYearDetail = [
         month: "March"
       }
     ],
-    season: 'Winter'
+    season: 'Summer'
   },
   {
     quarter: 2,
@@ -113,7 +113,7 @@ export const WCYearDetail = [
         month: "June"
       }
     ],
-    season: 'Summer'
+    season: 'Winter'
   },
   {
     quarter: 3,
@@ -131,7 +131,7 @@ export const WCYearDetail = [
         month: "September"
       }
     ],
-    season: 'Summer'
+    season: 'Winter'
   },
   {
     quarter: 4,
@@ -149,6 +149,6 @@ export const WCYearDetail = [
         month: "December"
       }
     ],
-    season: 'Winter'
+    season: 'Summer'
   }
 ]

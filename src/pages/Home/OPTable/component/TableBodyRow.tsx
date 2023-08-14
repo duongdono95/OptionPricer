@@ -1,16 +1,16 @@
 import { OptionProperties, OptionType } from "@pantheon-tech/bsm-optionmodel";
 import React, { useState } from "react";
 import CheckBox from "../../../../components/CheckBox/CheckBox";
-import HighlightedData from "../../../../components/HighlightedData/HighlightedData";
-import SwitchButton from "../../../../components/SwitchButton/SwitchButton";
+import HighlightedData from "./HighlightedData/HighlightedData";
 import { numDataConverter } from "../../../../libs/hooks/hooks";
 import Td from "../../../../DynamicTable/Td";
 import Tr from "../../../../DynamicTable/Tr";
 import OPDateSelection from "./OPDateSelection/OPDateSelection";
 import { OPTableButtons } from "../../../../components/OPTableButtons/OPTableButtons";
-import { toast } from "../../../../components/Toast/Toast";
-import Tippy from "@tippyjs/react/headless"; // different import path!
+import Tippy from "@tippyjs/react/headless";
 import TippySlider from "../../../../components/TippySlider/TippySlider";
+import Switch2Options from "../../../../components/Switch2Options/Switch2Options";
+import { CallPutConstants } from "../../../../libs/types/constant";
 
 const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
   const [optionType, setOptionType] = useState<
@@ -29,7 +29,7 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
         <HighlightedData role="Buy" tradedValue={10} />
       </Td>
       <Td highlighted title="Call/Put">
-        <SwitchButton optionType={optionType} setOptionType={setOptionType} />
+        <Switch2Options options={["Call", "Put"]} />
       </Td>
       <Td title="Price(/lot)">{numDataConverter(rowData.optionPrice)}</Td>
       <Td title="Cost">

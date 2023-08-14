@@ -48,12 +48,17 @@ export const createSelectedMonthArr = (start: Dayjs, end: Dayjs) => {
   const endYear = end && end.year();
   const result = [];
   if (startYear === endYear) {
+    const sameYear: {
+      year: number;
+      months: number[];
+    } = {
+      year: endYear,
+      months: [],
+    };
     for (let i = startMonth; i <= endMonth; i++) {
-      result.push({
-        year: endYear,
-        months: [i],
-      });
+      sameYear.months.push(i);
     }
+    result.push(sameYear);
     return result;
   }
   if (startYear < endYear) {

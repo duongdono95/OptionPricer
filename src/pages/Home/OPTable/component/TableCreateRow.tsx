@@ -1,11 +1,12 @@
 import { OptionProperties, OptionType } from "@pantheon-tech/bsm-optionmodel";
 import React, { useState } from "react";
 import CheckBox from "../../../../components/CheckBox/CheckBox";
-import SwitchButton from "../../../../components/SwitchButton/SwitchButton";
 import Td from "../../../../DynamicTable/Td";
 import Tr from "../../../../DynamicTable/Tr";
 import OPDateSelection from "./OPDateSelection/OPDateSelection";
 import InputComponent from "../../../../components/InputComponent/InputComponent";
+import Switch2Options from "../../../../components/Switch2Options/Switch2Options";
+import { CallPutConstants } from "../../../../libs/types/constant";
 
 interface TableCreateRowProps {
   isCreateMode: boolean;
@@ -33,7 +34,8 @@ const TableCreateRow: React.FC<TableCreateRowProps> = ({
         <p>0</p>
       </Td>
       <Td highlighted title="Call/Put">
-        <SwitchButton optionType={optionType} setOptionType={setOptionType} />
+        {/* <SwitchButton optionType={optionType} setOptionType={setOptionType} /> */}
+        <Switch2Options options={CallPutConstants} />
       </Td>
       <Td title="Price(/lot)">
         <p>0</p>

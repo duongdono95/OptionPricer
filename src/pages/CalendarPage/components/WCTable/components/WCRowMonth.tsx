@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import CheckBox from "../../../../../components/CheckBox/CheckBox";
 import { useEffect } from "react";
 import { WCPageStore } from "../../../../../Zustand/CalendarStore";
-import { createSelectedMonthArr } from "../../../../../libs/hooks/hooks";
-import { selectedMonthsArr } from "../../../../../libs/types/GeneralTypes";
 
 interface WCRowMonth {
   rowMonth: {
@@ -11,9 +9,9 @@ interface WCRowMonth {
     month: string;
   };
   rowYear: number;
+  isSelectedMonth: boolean | undefined;
 }
-type monthsArrType = selectedMonthsArr;
-const WCRowMonth = ({ rowMonth, rowYear }: WCRowMonth) => {
+const WCRowMonth = ({ rowMonth, rowYear, isSelectedMonth }: WCRowMonth) => {
   const [today, startTime, endTime] = WCPageStore((state) => [
     state.today,
     state.startTime,
@@ -30,25 +28,10 @@ const WCRowMonth = ({ rowMonth, rowYear }: WCRowMonth) => {
         setIsActive(false);
       }
     }
-    if (startTime && endTime) {
-      const monthsArr: monthsArrType = createSelectedMonthArr(
-        startTime,
-        endTime
-      );
-      monthsArr?.forEach((item) => {
-        if (rowYear === item.year) {
-          item.months.forEach((month) => {
-            if (month === rowMonth.value) {
-              setIsSelectedRow(!isSelectedRow);
-            }
-          });
-        }
-      });
-    }
   }, [rowYear, startTime, endTime]);
   return (
     <div className={isActive ? "month" : "month inactive noselect"}>
-      <CheckBox isActive={isActive} isSelected={isSelectedRow} />
+      <CheckBox isActive={isActive} isSelected={isSelectedMonth} />
       <p className="noselect">{rowMonth.month}</p>
     </div>
   );

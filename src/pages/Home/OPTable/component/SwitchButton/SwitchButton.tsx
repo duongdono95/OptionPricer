@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./SwitchButton.scss";
-import { CallPutConstants } from "../../libs/types/constant";
+import { CallPutConstants } from "../../../../../libs/types/constant";
 import { OptionType } from "@pantheon-tech/bsm-optionmodel";
 
 interface SwitchButtonProps {
@@ -23,7 +23,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
             key={index}
             onClick={() => setOptionType(item)}
             style={{
-              backgroundColor: `var(--${item.toLowerCase()}-side)`,
+              backgroundColor: `var(--${item.toLowerCase()})`,
             }}
           >
             {optionType === item ? (item === "C" ? "Call" : "Put") : item}

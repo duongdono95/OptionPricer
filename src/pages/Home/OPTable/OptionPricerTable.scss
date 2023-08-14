@@ -1,6 +1,8 @@
 .table {
   margin: 10px 0;
   border: 1px solid var(--black02);
+  font-size: 12px;
+  font-weight: 500;
   tbody {
     tr {
       box-shadow: inset 0px -3px 5px var(--black005);
@@ -8,6 +10,14 @@
       &.row-btns {
         box-shadow: none;
         background-color: white;
+      }
+      .Call {
+        background-color: var(--c);
+        color: white;
+      }
+      .Put {
+        background-color: var(--p);
+        color: white;
       }
     }
   }

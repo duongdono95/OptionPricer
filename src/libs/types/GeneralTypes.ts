@@ -5,8 +5,7 @@ export type NodeType = "OTA" | "BEN";
 
 export type OPTimePickerOptionsType = "date" | "week" | "month" | "quarter" | "year"
 
-export type monthArrDifferentYears = {
+export type monthsArrType = {
   year: number;
   months: number[];
-}[]
-export type selectedMonthsArr = monthArrDifferentYears | undefined
+}
