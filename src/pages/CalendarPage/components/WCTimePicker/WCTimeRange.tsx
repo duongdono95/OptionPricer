@@ -15,25 +15,22 @@ const WCTimeRange: React.FC<WCTimeRangeProps> = ({
   rangeType,
   setTimeDifference,
 }) => {
-  const [startTime, endTime, setStartTime, setEndTime] = WCPageStore(
-    (state) => [
-      state.startTime,
-      state.endTime,
-      state.setStartTime,
-      state.setEndTime,
-    ]
-  );
+  const [setStartTime, setEndTime] = WCPageStore((state) => [
+    state.setStartTime,
+    state.setEndTime,
+  ]);
   const { RangePicker } = DatePicker;
 
   const handleSelection = (
     values: RangeValue<Dayjs>
     // formatString: [string, string]
   ) => {
-    setStartTime(null);
-    setEndTime(null);
     setTimeDifference(0);
     const difference = calculateTimeDifference(values, rangeType);
     setTimeDifference(difference);
+    if (values && values[0]) {
+      console.log(values[0].month());
+    }
     if (values && values[0] && values[1]) {
       setStartTime(values[0]);
       setEndTime(values[1]);

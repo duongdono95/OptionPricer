@@ -33,7 +33,6 @@ const WCTableRow = ({ row, rowYear, rowIndex }: WCTableRowProps) => {
         endTime
       );
       monthsArr?.forEach((item) => {
-        console.log(item.months);
         if (rowYear === item.year) {
           setSelectedMonth(item.months);
         }

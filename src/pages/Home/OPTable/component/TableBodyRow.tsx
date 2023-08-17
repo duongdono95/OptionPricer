@@ -28,7 +28,7 @@ const TableBodyRow = ({ rowData }: { rowData: OptionProperties }) => {
       <Td title="Buy/Sell">
         <HighlightedData role="Buy" tradedValue={10} />
       </Td>
-      <Td highlighted title="Call/Put">
+      <Td className="callPut_container" highlighted title="Call/Put">
         <Switch2Options options={["Call", "Put"]} />
       </Td>
       <Td title="Price(/lot)">{numDataConverter(rowData.optionPrice)}</Td>

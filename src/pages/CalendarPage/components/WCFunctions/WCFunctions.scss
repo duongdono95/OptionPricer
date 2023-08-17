@@ -1,0 +1,37 @@
+.WCFunctions {
+  box-shadow: 5px 5px 10px var(--black01);
+  flex-grow: 1;
+  .tabs {
+    display: flex;
+    background-color: var(--signature05);
+    .tab {
+      cursor: pointer;
+      padding: 13px 10px 7px 10px;
+    }
+    .tab_name {
+      font-size: 16px;
+      font-weight: 500;
+      opacity: 0.7;
+      &.tab_name-active {
+        font-weight: 600;
+        opacity: 1;
+      }
+    }
+    .under_line {
+      width: 0;
+      height: 4px;
+      background-color: var(--white05);
+      transition: width 0.5s ease-in-out;
+    }
+    .active_line {
+      width: 100%;
+    }
+  }
+  .function_content {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--black01);
+    background-color: white;
+    padding: 10px;
+  }
+}

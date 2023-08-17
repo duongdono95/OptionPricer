@@ -14,7 +14,6 @@ const WCTimePicker = () => {
       <DropDown
         options={OPTimePickerOptions}
         defaultValue={rangeType}
-        value={rangeType}
         onChange={(e) =>
           setRangeType(e.target.value as OPTimePickerOptionsType)
         }

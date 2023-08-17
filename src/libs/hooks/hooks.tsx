@@ -12,6 +12,10 @@ export const numDataConverter = (data: number | undefined) => {
     return formattedData;
   }
 };
+export const convertNumLocaleString = (
+  data: number | string,
+  unit?: string
+) => {};
 
 export const shortenString = (content: string, count?: number) => {
   const convertedContent = content.charAt(0).toUpperCase() + content.slice(1);

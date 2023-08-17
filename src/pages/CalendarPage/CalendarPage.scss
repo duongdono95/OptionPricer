@@ -1,0 +1,14 @@
+.CalendarPage {
+  width: 100%;
+  max-width: var(--default-layout-width);
+  background-color: var(--black005);
+  margin: 0 auto;
+  padding: 0 1%;
+  .wc-page-content {
+    border-top: 2px solid var(--black01);
+    display: flex;
+    align-items: flex-start;
+    gap: 5%;
+    padding: 1% 0;
+  }
+}

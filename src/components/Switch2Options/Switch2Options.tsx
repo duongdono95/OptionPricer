@@ -3,9 +3,9 @@ import "./Switch2Options.scss";
 import classNames from "classnames";
 
 interface Switch2OptionsProps extends React.HTMLAttributes<HTMLDivElement> {
-  options: string[] | number[];
+  options: string[];
   className?: string;
-  activeOption?: string | number;
+  activeOption?: string;
 }
 
 const Switch2Options = React.forwardRef<HTMLDivElement, Switch2OptionsProps>(
@@ -29,7 +29,7 @@ const Switch2Options = React.forwardRef<HTMLDivElement, Switch2OptionsProps>(
               }
               onClick={() => setIsActive(options[index])}
             >
-              {isActive === option ? option : option}
+              {isActive === option ? option : option.charAt(0)}
             </div>
           );
         })}
